@@ -15,8 +15,8 @@
         "@service/*": [
           "./service/*"
         ],
-        "@validation/*": [
-          "./validation/*"
+        "@validations/*": [
+          "./validations/*"
         ],
         "@routes/*": [
           "./routes/*"

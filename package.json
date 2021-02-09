@@ -10,7 +10,7 @@
     "@controllers": "./controllers",
     "@models": "./models",
     "@service": "./service",
-    "@validation": "./validation",
+    "@validations": "./validations",
     "@routes": "./routes",
     "@config": "./config",
     "@middleware": "./middleware"

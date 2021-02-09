@@ -1,5 +1,6 @@
 const _ = require('lodash')
 const Employee = require('@models/Employee')
+const Responder = require('@service/Responder')
 
 module.exports = {
   //- user listing
@@ -37,13 +38,10 @@ module.exports = {
       .skip(perPage * page - perPage)
       .limit(perPage)
       .sort(sortingMatch);
-      return res.json({
-        status: true,
-        data: employee,
-        message: "Login successfully"
-      })
+      return Responder.respondWithSuccess(req, res, employee, 'Retrieve successfully')
     } catch (error) {
       console.log(error)
+      return Responder.respondWithError(req, res,error)
     }
   }
 }
