@@ -5,6 +5,16 @@
   "scripts": {
     "start": "./node_modules/nodemon/bin/nodemon.js ./bin/www"
   },
+  "_moduleAliases": {
+    "@root": ".",
+    "@controllers": "./controllers",
+    "@models": "./models",
+    "@service": "./service",
+    "@validation": "./validation",
+    "@routes": "./routes",
+    "@config": "./config",
+    "@middleware": "./middleware"
+  },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
@@ -17,6 +27,7 @@
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
+    "module-alias": "^2.2.2",
     "mongoose": "^5.11.15",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.7"

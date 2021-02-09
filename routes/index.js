@@ -1,12 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var AuthRoute = require("./auth/auth")
-var UserRoute = require("./user/user")
+var AuthRoute = require("@routes/auth")
+var UserRoute = require("@routes/user")
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
-});
 router.use('/auth', AuthRoute)
 router.use('/user', UserRoute)
 

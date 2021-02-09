@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+      "allowSyntheticDefaultImports": false,
+      "baseUrl": ".",
+      "paths": {
+        "@root/*": [
+          "./*"
+        ],
+        "@controllers/*": [
+          "./controllers/*"
+        ],
+        "@models/*": [
+          "./models/*"
+        ],
+        "@service/*": [
+          "./service/*"
+        ],
+        "@validation/*": [
+          "./validation/*"
+        ],
+        "@routes/*": [
+          "./routes/*"
+        ],
+        "@config/*": [
+          "config/*"
+        ],
+        "@middleware/*": [
+          "./middleware/*"
+        ]
+      }
+    },
+    "exclude": [
+      "node_modules"
+    ],
+    "moduleResolution": "node"
+  }

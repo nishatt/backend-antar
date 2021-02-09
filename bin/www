@@ -5,6 +5,8 @@
  */
 
 require('dotenv').config()
+require("module-alias/register");
+
 var app = require('../app');
 var debug = require('debug')('backendantar:server');
 var http = require('http');

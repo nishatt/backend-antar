@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { generateUId } = require('../service/general')
+const { generateUId } = require('@service/Generator')
 
 const EmployeeSchema = new mongoose.Schema({
   employeeId: {
@@ -24,7 +24,7 @@ const EmployeeSchema = new mongoose.Schema({
     required: 'Email address is required',
     match: /\S+@\S+\.\S+/
   },
-  userId: {
+  creatorId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
