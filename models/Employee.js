@@ -6,11 +6,6 @@ const EmployeeSchema = new mongoose.Schema({
     type: String,
     trim: true,
     unique: true,
-    required: true
-    // ,
-    // default: function genUUID() {
-    //   return uuid.v1()
-    // }
   },
 
   firstName: {
@@ -21,11 +16,19 @@ const EmployeeSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
+   email: {
+    type: String,
+    trim: true,
+    lowercase: true,
+    unique: true,
+    required: 'Email address is required',
+    match: /\S+@\S+\.\S+/
+  },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  organistationName: {
+  organisationName: {
     type: String,
     trim: true,
   },
@@ -33,12 +36,24 @@ const EmployeeSchema = new mongoose.Schema({
 
 EmployeeSchema.pre("save", async function save(next) {
   try {
-    console.log("sss", generateUId());
-    if (!this.isNew()) return next()
+    if (!this.isNew) return next()
     this.employeeId = await generateUId()
     return next()
   } catch (error) {
     return next(error)
   }
 })
+
+EmployeeSchema.statics = {
+  async getEmployeeByUserId(payload) {
+    try {
+      let employee = await this.findOne({ userId: payload.userId.trim() })
+      if (!employee)
+        return { status: false }
+      return { status: true, data: employee }
+    } catch (error) {
+      throw error
+    }
+  },
+}
 module.exports = mongoose.model("Employee", EmployeeSchema)

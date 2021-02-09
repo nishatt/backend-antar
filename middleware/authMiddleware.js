@@ -1,9 +1,8 @@
 const JWT = require('jsonwebtoken')
-const User = require('../../models/User')
 
 module.exports = async (req, res, next) => {
   try {
-    const bearerHeader = req.header["authoriaztion"]
+    const bearerHeader = req.headers["authorization"]
     if (!bearerHeader)
       return res
         .status(401)
@@ -13,6 +12,7 @@ module.exports = async (req, res, next) => {
         })
     const bearer = bearerHeader.split(" ")
     const token = bearer[1]
+    
     if (!token)
       return res
         .status(401)

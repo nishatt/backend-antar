@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
-// var AuthRoute = require("./auth/")
+const UserController = require("../../controller/user/UserContoller")
+const AuthMiddleware = require("../../middleware/authMiddleware")
+
 
 /* GET home page. */
-router.get('/list', function (req, res, next) {
-  res.send("user page")
-  // res.render('index', { title: 'Express' });
-});
+router.post('/list', AuthMiddleware, UserController.getUserList)
 
 
 // router.use('/auth', 

@@ -7,7 +7,7 @@ module.exports = {
   async register(req, res) {
     try {
       if (!(req.body.email || req.body.password))
-        return res.json({
+        return res.status(400).json({
           status: false,
           data: {},
           message: "Email Password is required"
@@ -15,7 +15,7 @@ module.exports = {
       let user = await User.getUserByEmail(req.body)
       console.log(user);
       if (user.status)
-        return res.json({
+        return res.status(400).json({
           status: false,
           data: {},
           message: "Email already exists"
